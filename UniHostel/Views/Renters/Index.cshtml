@@ -1,0 +1,61 @@
+﻿@model IEnumerable<UniHostel.Models.Renter>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Renter</h2>
+
+<p>
+    @*@Html.ActionLink("Create New", "Create")*@
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.Raw("Room Name")
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FullName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HomeTown)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Phone)
+        </th>
+        <th></th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Room.Name)
+            </td>
+            <td>
+                <a href="@Url.Action("Details", new { id = item.ID })">
+                    @Html.DisplayFor(modelItem => item.FullName)
+                </a>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HomeTown)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phone)
+            </td>
+           
+            <td>
+                <a href="@Url.Action("Delete", new { id = item.ID })" title="Nhấn vào đây để xóa" style="color: #dd4b39;">
+                    <i class="fa fa-times-circle" aria-hidden="true"></i> Delete
+                </a>
+                <br />
+                <a href="@Url.Action("MarkLeave", new { id = item.ID })" title="This renter has left" style="color: #66ccff;">
+                    <i class="fas fa-sign-out-alt"></i> Mark leave
+                </a>
+            </td>
+        </tr>
+    }
+
+</table>

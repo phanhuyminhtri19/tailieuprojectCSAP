@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="962eb5583ca14b1199d3b9992042b4b1" Name="Diagram1" ZoomLevel="64">
+        <EntityTypeShape EntityType="UniHostelDB.AdvancedService" Width="1.5" PointX="7.5" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="UniHostelDB.BillAdvancedServiceDetail" Width="1.5" PointX="9.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="UniHostelDB.BillCompulsoryServiceDetail" Width="1.5" PointX="9.75" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="UniHostelDB.Bill" Width="1.5" PointX="9.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="UniHostelDB.CompulsoryService" Width="1.5" PointX="7.5" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="UniHostelDB.Host" Width="1.5" PointX="5.25" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="UniHostelDB.Renter" Width="1.5" PointX="12.75" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="UniHostelDB.Role" Width="1.5" PointX="0.75" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="UniHostelDB.Room" Width="1.5" PointX="7.5" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="UniHostelDB.sysdiagram" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="UniHostelDB.User" Width="1.5" PointX="3" PointY="7.625" IsExpanded="true" />
+        <AssociationConnector Association="UniHostelDB.FKAdvancedSe344659" ManuallyRouted="false" />
+        <AssociationConnector Association="UniHostelDB.FKBillAdvanc51478" ManuallyRouted="false" />
+        <AssociationConnector Association="UniHostelDB.FKBillAdvanc851367" ManuallyRouted="false" />
+        <AssociationConnector Association="UniHostelDB.FKBillCompul345220" ManuallyRouted="false" />
+        <AssociationConnector Association="UniHostelDB.FKBillCompul352425" ManuallyRouted="false" />
+        <AssociationConnector Association="UniHostelDB.FKBills118189" ManuallyRouted="false" />
+        <AssociationConnector Association="UniHostelDB.FKBills659531" ManuallyRouted="false" />
+        <AssociationConnector Association="UniHostelDB.FKCompulsory305640" ManuallyRouted="false" />
+        <AssociationConnector Association="UniHostelDB.FKHosts945312" ManuallyRouted="false" />
+        <AssociationConnector Association="UniHostelDB.FKRooms557241" ManuallyRouted="false" />
+        <AssociationConnector Association="UniHostelDB.FKRenters242649" ManuallyRouted="false" />
+        <AssociationConnector Association="UniHostelDB.FKRenters392292" ManuallyRouted="false" />
+        <AssociationConnector Association="UniHostelDB.FKUsers38060" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

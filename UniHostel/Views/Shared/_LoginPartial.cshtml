@@ -1,0 +1,16 @@
+﻿@{
+    if (Session["User"] is User user)
+    {
+        using (Html.BeginForm("Logout", "Home", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+        {
+            @Html.AntiForgeryToken()
+            <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
+                <img src="../Content/assets/img/user/user-13.jpg" alt="" />
+                <span class="d-none d-md-inline">@user.Username</span> <b class="caret"></b>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right">
+                <a href="javascript:document.getElementById('logoutForm').submit()" class="dropdown-item">Log Out</a>
+            </div>
+        }
+    }
+}

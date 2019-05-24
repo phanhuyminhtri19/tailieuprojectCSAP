@@ -1,0 +1,63 @@
+﻿@model UniHostel.Models.Bill
+@using UniHostel.Models
+
+<div class="h">
+    <h1>Advanced Service</h1>
+</div>
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fas fa-table"></i>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Service Name</th>
+                        <th>Unit</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Amount</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @{ 
+                        var services = Model.BillAdvancedServiceDetails.ToList();
+                    }
+                    @foreach (var service in services)
+                    {
+                        <tr>
+                            <td>
+                                @Html.Raw(service.AdvancedService.Name)
+                                @Html.Hidden("AdvancedServiceID", service.AdvancedServiceID, new { @class = "form-control AdvancedServiceID" })
+                            </td>
+                            <td>
+                                @Html.Raw(service.AdvancedService.Unit)
+                            </td>
+                            <td>
+                                @Html.TextBoxFor(details => service.Quantity, new { @type = "number"
+                                                                    , @min = "0"
+                                                                    , @step = "1"
+                                                                    , @value = service.Quantity
+                                                                    , @class = "form-control Quantity"
+                                                                    , onChange = "calculateAdvancedServiceMoney(this)"
+                                                                    } )
+                            </td>
+                            <td class="unit-price">
+                                @Html.Raw(service.AdvancedService.Price)
+                            </td>
+                            <td class="amount">
+                                @Html.Raw(service.Amount)
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+
+        <div class="card-footer small text-muted"></div>
+
+    </div>
+</div>

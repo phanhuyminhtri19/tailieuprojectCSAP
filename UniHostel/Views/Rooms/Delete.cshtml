@@ -1,0 +1,70 @@
+﻿
+@model UniHostel.Models.Room
+@{
+    Layout = "~/Views/Shared/_NiceLayout.cshtml";
+}
+
+<link href="~/Content/cssdelete/bootstrap.css" rel="stylesheet" />
+
+<h3 style="margin-left:90px;">Are you sure you want to<br /> delete this Room?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <img class="card-img-top" src="@Model.Image" alt="Card image cap" style="margin-left:100px;width:20%;height:200px;margin-bottom:20px;" />
+
+        <dd>
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Square)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Square)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.Raw(Model.Description)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.isAvailable)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.isAvailable)
+        </dd>
+
+
+    </dl>
+
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-actions no-color" style="margin-left:90px;">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "RoomManager")
+        </div>
+    }
+
+
+</div>

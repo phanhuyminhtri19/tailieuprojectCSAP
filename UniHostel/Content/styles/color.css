@@ -1,0 +1,524 @@
+/*------------------------------------------------------------------
+
+Luxury - CSS File
+
+CHANGE COLOR STYLE
+
+-------------------------------------------------------------------*/
+
+/*------------------------------------------------------------------
+
+[Table of contents]
+
+1. Global Elements
+2. Header 
+	2.1. Navigation
+	2.2. Slider
+3. Afterheader
+4. Content 
+	4.1. Home, About, Accomodation and Room
+	4.2. Blog and Single
+5. Sidebar
+6. Footer Sidebar
+7. Footer
+
+
+-------------------------------------------------------------------*/
+
+
+
+/* 1. GLOBAL ELEMENTS
+--------------------------------------------------------------------------------------*/
+
+body {color:#737373;}
+#bodychild {}
+#outermain{background-color:#ffffff; }
+
+/* Logo */
+
+#logo h1, #logo h1 a, #logo h1 a:visited{color:#fff;}
+#logo .desc {color:#fff;}
+
+/* Link */
+a, .morelink, .colortext, a.colortext{color:#737373;}
+a:hover, a.colortext:hover, .colortext a:hover, .morelink:hover{color:#363636}
+
+/* Heading & text */
+h1, h2, h3, h4, h5, h6{color:#363636;}
+
+
+
+/* 2. HEADER SECTION 
+--------------------------------------------------------------------------------------*/
+
+#header-image{
+   background-image: url("../images/bg-header.jpg");
+   background-position: center top;
+   background-repeat: no-repeat;
+}
+
+/*======= 2.1. Navigation =======*/
+#outermainmenu{  
+  background-color: #272738;
+  
+}
+#outermainmenu:before {
+  background-color: #272738;
+}
+#outermainmenu:after {
+  background-color: #272738;
+}
+
+
+.sf-menu a, .sf-menu a:visited{color:#fff;}
+
+.sf-menu > li > a:before {
+  background-color: #272738;
+}
+
+.sf-menu > li.sfHover > a,
+.sf-menu > li > a:hover,
+.sf-menu a:hover{
+  color: #ffffff;
+  background-color: #1f1f2c;
+}
+
+.sf-menu > li.sfHover > a span,
+.sf-menu > li > a:hover span,
+.sf-menu > a:hover span, .sf-menu > li.current > a span{ border-bottom:2px solid #f6c606}
+
+.sf-menu > li.sfHover > a:before,
+.sf-menu > li > a:hover:before,
+.sf-menu > li.current > a:before{
+  width: 0;
+}
+
+/* 2nd level */
+.sf-menu li:hover ul,
+.sf-menu li.sfHover ul {
+	background:#dfdfdf;
+	color:#737373;
+	border:0px;
+	-webkit-box-shadow: 0px 2px 5px 0px rgba(214,214,214,1);
+	-moz-box-shadow: 0px 2px 5px 0px rgba(214,214,214,1);
+	box-shadow: 0px 2px 5px 0px rgba(214,214,214,1);
+}
+
+.sf-menu li li a, .sf-menu li li a:visited{ color:#737373;  }
+.sf-menu ul li a:hover, .sf-menu li li.current-menu-item  a, .sf-menu li li.current_page_item  a{color:#363636; background:#d0d0d0 }
+.sf-menu li.sfHover li a:hover{color:#363636;}
+
+.sf-menu li li:first-child{
+	 border:0px;
+}
+.sf-menu li li{ border-top:1px solid #eee;}
+
+
+
+
+/* Mobile Menu*/
+.tinynav{background:#fff; border:1px solid #eee;}
+
+
+
+/*======= 2.2. Slider =======*/
+
+#outerslider{}
+#slider .slider-desc{color:#ffffff; background-color:rgba(31,31,44,0.8);}
+
+
+#slider .slider-title a, #slider .slider-title a:hover{ color:#fff}
+#slider .camera_prev > span {
+	background: url(../images/camera_prev.png) no-repeat 0 0;
+}
+#slider .camera_next > span {
+	background: url(../images/camera_next.png) no-repeat 0 0;
+}
+
+#slider .camera_prev, #slider .camera_next{
+	background: #1f1f2c;
+	background: rgba(31, 31, 44, 0.5);
+}
+#slider .camera_wrap .camera_pag .camera_pag_ul li {	
+	background:transparent;
+	border:2px solid #fff;
+}
+#slider .camera_wrap .camera_pag .camera_pag_ul li:hover > span {background: #fff; border:1px solid #fff;}
+#slider .camera_wrap .camera_pag .camera_pag_ul li.cameracurrent > span {background: #fff; border:1px solid #fff;}
+
+/* 3. AFTER HEADER SECTION 
+--------------------------------------------------------------------------------------*/
+#outerafterheader{ }
+#afterheader{ color:#737373; border-bottom:1px solid #ddd}
+.pagetitle{ color:#363636;}
+.pagedesc{color:#737373;}
+#breadcrumbs{color:#737373; background:#f6f6f6; border-bottom:1px solid #f2f0f0}
+
+/* 4. CONTENT SECTION 
+--------------------------------------------------------------------------------------*/
+
+.frame{border:1px solid #767697}
+
+.fa { color:#dfdfdf}
+.fa.color2 { color:#b7b7b7}
+.fa-li{ color:#bcbcbc}
+.black{ color:#363636}
+
+/* Page Navigation */
+.wp-pagenavi .pages{color:#353535;}
+.wp-pagenavi a, .wp-pagenavi a:visited{color:#a1a1a1; border: 1px solid #ddd; background:#fff}
+.wp-pagenavi .current, .wp-pagenavi a:hover{ border:1px solid #ddd!important; color:#353535; background:#ededed}
+.wp-pagenavi a.last, .wp-pagenavi a.last:hover, 
+.wp-pagenavi a.first, .wp-pagenavi a.first:hover{color:#353535}
+
+
+/* Form */
+input[type="text"], input[type="email"],
+textarea, input[type="password"], select{
+	border:solid 1px #e5e5e5;
+	color:#737373;
+}
+label{ color:#737373;}
+span.required{ color:#f00;}
+
+/* Horizontal Line */
+hr {
+	color:#eaeaea;
+	background-color:#eaeaea;
+}
+
+.separator{ 
+	border-bottom: 1px solid #ededed;
+}
+
+/* List */
+ul.client{border:solid 1px #eaeaea;}
+ul.checklist li{ background:url(../images/checklist.png) no-repeat 0 5px;}
+
+
+/* Button */
+.but-room{ border:1px solid #767697; color:#767697}
+.but-room:hover{ border:1px solid #7f7fa2; color:#7f7fa2}
+
+
+.button:after, 
+.button:visited:after, 
+button:after {
+	background:#e7c748;
+}
+
+.button, button {
+	background: #f6c606; 
+	border:0;
+	color:#353535!important;
+	
+}
+
+.button:hover, button:hover {
+	background: #fecb00; 
+	border:0;
+	color:#353535!important;
+}
+
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+	border:0;
+	color:#353535!important;
+	
+}
+
+input[type="submit"]:hover,
+input[type="reset"]:hover,
+input[type="button"]:hover {
+	border:0;
+	color:#353535!important;
+}
+
+.input-btn{	background: #f6c606;}
+.btn-from-right:before {background:#e7c748;}
+
+
+/* Blockquote */
+blockquote{ border-left: 6px solid #cdcdcd }
+
+
+/* Dropcaps */	
+.dropcap1{text-shadow:1px 1px 0 #ededed; color:#2e2e2e}
+.dropcap2{color:#fff; background:#2e2e2e}		
+.dropcap3{color:#fff; background:#2e2e2e}
+
+
+/* Code */
+code {
+	border-left:4px solid #e9e9e9;
+}
+
+/* Tables */
+th{border-bottom: 1px solid #f1f1f1;}
+table {border: 1px solid #f1f1f1;border-bottom:0;}
+tr td {border-bottom: 1px solid #f1f1f1;}
+tr.odd td {background: #F2F7FC;}
+
+/* Bottomline*/
+.bottomline{border-color:#e7e7e7;}
+
+/* custom class */
+.custom1{
+	border-top: 20px solid #3c3c55;
+	border-bottom: 20px solid #3c3c55;
+	background:#2c2c40;
+	color:#fff;
+}
+
+.custom1 .widget-title,
+.ts-action-widget h1,
+.ts-action-widget h2{ color:#fff;}
+
+
+.custom2{
+	border-top: 20px solid #fba61f;
+	border-bottom: 20px solid #fba61f;
+	color:#fff;
+	background:#f29708;
+}
+
+.custom2 .ts-testimonial-widget .testi-title{ color: #fff;}
+.custom2 .ts-testimonial-widget .testi-tag{ color: #fff;}
+
+
+.custom3{
+	border-top: 22px solid #ededed;
+	border-bottom: 22px solid #ededed;
+	color:#737373;
+	background:#f6f6f6;
+}
+
+.noborder{ border:0px!important;}
+.noborderbottom{ border-bottom:0px!important;}
+
+.custom4{
+	color:#363636;
+	background:#f6c606;
+}
+
+
+
+
+/*================== 4.1. Home, About, Accomodation and Room ==================*/
+
+
+/* Latest News */
+
+.ts-latestnews-widget .recent-content-wrap{ background-color:#f7f7f7; color:#737373;}
+
+.ts-latestnews-widget .recent-title,
+.ts-latestnews-widget .recent-title a, 
+.ts-latestnews-widget .recent-title a:visited{color:#363636;}
+.ts-latestnews-widget .recent-title a:hover{color:#737373;}
+.ts-latestnews-widget .smalldate{color:#737373;}
+.ts-latestnews-widget  img{border:1px solid #767697}
+
+
+
+/* Events News */
+.ts-events-widget .event-title,
+.ts-events-widget .event-title a, 
+.ts-events-widget .event-title a:visited{color:#737373;}
+.ts-events-widget .event-title a:hover{color:#363636;}
+.ts-events-widget .smalldate{color:#737373;}
+.ts-events-widget .event-date-wrap{ background:#ffcc00; color:#363636;}
+
+
+
+/* Advanced Posts */
+.ts-advancedpost-widget .recent-title,
+.ts-advancedpost-widget .recent-title a, 
+.ts-advancedpost-widget .recent-title a:visited{color:#363636;}
+.ts-advancedpost-widget .recent-title  a:hover{color:#737373;}
+.ts-advancedpost-widget .smalldate{color:#737373; background:#ddd;}
+
+
+
+/* Action */
+#footersidebar .ts-action-widget h1,
+#footersidebar .ts-action-widget h2 { color:#fff}
+
+
+/* Image Carousel */
+.image-frame .flexslider-carousel .image{ border:1px solid #767697}
+.flex-direction-nav .flex-next, .flexslider-carousel ul.flex-direction-nav a.flex-next{
+	background:url(../images/flex-next.png) no-repeat;
+}
+.flex-direction-nav .flex-prev, .flexslider-carousel ul.flex-direction-nav a.flex-prev{
+	background:url(../images/flex-prev.png) no-repeat;
+}
+
+
+
+/* Featured */
+.ts-features .feature-title, 
+.ts-features .feature-title a, 
+.ts-features .feature-title a:visited{color:#363636;}
+.ts-features .feature-title a:hover{color:#737373;}
+
+
+/* Team */
+.ts-team-widget .team-title, 
+.ts-team-widget .team-title a, 
+.ts-team-widget .team-title a:visited{color:#363636;}
+.ts-team-widget .team-title a:hover{color:#737373;}
+
+
+/* Recent Posts */
+.ts-recentpost-widget .recent-title,
+.ts-recentpost-widget .recent-title a, 
+.ts-recentpost-widget .recent-title a:visited{color:#363636;}
+.ts-recentpost-widget .recent-title a:hover{color:#737373;}
+.ts-recentpost-widget .smalldate{color:#363636; background:#ffcc00}
+.ts-recentpost-widget .frame{border:1px solid #767697}
+
+/* Testimonials */
+.ts-testimonial-widget .testi-container{ }
+.ts-testimonial-widget .testi-thumb .image{ }
+.ts-testimonial-widget .testi-title{ color: #363636;}
+.ts-testimonial-widget .testi-tag{ color: #737373;}
+
+
+
+/* Portfolio */
+
+#filter li a, #filter li a:visited{ color:#353535; background:#bdbdbd}
+#filter li.current a, #filter li a.active, #filter li a:hover{color:#353535; background:#f6c606}
+
+.ts-pf-img { border:1px solid #767697}
+.ts-portfolio .ts-pf-text{background-color:rgba(246,198,6,0.6);}
+
+.ts-pf-text .pftitle,
+.ts-pf-text .pftitle a, 
+.ts-pf-text .pftitle a:visited{color:#363636;}
+.ts-pf-text .pftitle a:hover{color:#737373;}
+.ts-pf-text .pfcat{ color:#737373;}
+
+.ts-pf-img .rollover {
+	background-image:url(../images/pf-zoom.png);
+}
+
+/* runing text */
+.runing-text{color: #363636; background:#f6f6f6;}
+.runing-text a{color: #363636;}
+.runing-text a:hover{color:#737373;}
+
+/*================== 4.2. Blog and Single ==================*/
+
+.sticky .posttitle{background:url(../images/sticky.png) no-repeat 2px 9px}
+
+.posttitle a, .posttitle a:visited{color:#363636;}
+.posttitle a:hover{color:#737373}
+.postimg img{ border:1px solid #767697}
+
+#singlepost .post:before { }
+
+.comment-body .arrow{ background:url(../images/comment-arrow.gif)}
+.entry-comment a, entry-comment a:visited{color:#737373;}
+.comment-body{ border:1px solid #ddd}
+
+.reply{border:1px solid #ddd; background:#ededed; color:#353535}
+.reply:hover{border:1px solid #ddd; background:#bdbdbd; color:#353535}
+
+.entry-utility{ 
+	color:#737373;
+}
+
+.entry-utility a{color:#737373}
+.entry-utility a:hover{ color:#606060}
+
+.fn{color:#363636;}
+.reply a, .reply a:visited{color:#aaa; }
+
+.tdate{ color:#ff9900}
+
+
+
+
+/* Post Format */
+.entry-quote .quote-text{ color:#888888;}
+.entry-quote .info{ color:#737373;}
+
+.avatar{
+	border:solid 1px #ddd;	
+}
+
+#entry-author-info{
+	border:solid 1px #ddd;
+}
+
+/* tag's*/
+
+.tag-items span:after { color: #999 !important;}
+.entry-tag, .tag-items a{color: #999;}
+.tag-items a:hover{color: #737373;}
+
+.page-links span.page-links-title, .page-links span.page-links-title:hover{ background:none; border:0px; color:#737373;}
+.page-links a span, .page-links span:hover{background:#a0a0a0; color:#fff; border:1px solid #a0a0a0}
+.page-links span{background:#fff; color:#666; border:1px solid #ebebeb}
+
+
+/* navigation  */
+.nav-previous, .nav-next { background:#fff no-repeat; border:1px solid #ddd; color:#353535}
+.nav-previous:hover{background-color:#ededed}
+.nav-next:hover{background-color:#ededed}
+
+
+/* 5. SIDEBAR SECTION 
+--------------------------------------------------------------------------------------*/
+
+#sidebar .widget-title {color:#363636;}
+
+#sidebar li, #sidebar li a, #sidebar li li a{color:#737373;}
+#sidebar li a:hover, #sidebar li li a:hover, #sidebar li li a.current{color:#363636;}
+
+#sidebar ul.sub-menu li, #sidebar ul.children li, #sidebar ul ul ul li{border-top:0; border-bottom:0px}
+#sidebar .morelink{color:#2e2e2e;}
+#sidebar .morelink:hover{color:#6a6a6a}
+
+
+
+
+/* 6. FOOTER SIDEBAR SECTION 
+--------------------------------------------------------------------------------------*/
+
+#outerfootersidebar{ background-color:#2c2c40; color:#fff;}
+#footersidebar li li{ }
+#footersidebar .widget-title{color:#fff; }
+#footersidebar li a, #footersidebar li a:visited{color:#fff}
+#footersidebar li a:hover{color:#ddd}
+
+/* Social */
+.sn .fa{background:#e6e0dd; color:#1f1f2c}
+.sn .fa:hover{background:#d8d7d6}
+
+
+
+/* 7. FOOTER SECTION 
+--------------------------------------------------------------------------------------*/
+
+#outerfooter{background-color:#1f1f2c;}
+#footer{color:#cbcbe2;}
+#footer a, #footer a:visited{color:#bcbcbc;}
+#footer a:hover{color:#ddd;}
+
+
+/* Back to top button */
+
+#scroll-to-top{
+	background:url("../images/up-arrow.png") no-repeat center transparent;
+	border:3px solid #777;
+}
+
+#scroll-to-top:hover{
+    background-color:transparent;
+}
+
+
+

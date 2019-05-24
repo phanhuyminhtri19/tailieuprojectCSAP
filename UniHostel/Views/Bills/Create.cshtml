@@ -1,0 +1,89 @@
+﻿@model UniHostel.Models.Bill
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create</h2>
+
+
+@using (Html.BeginForm("Create", "Bills", FormMethod.Post, new { @id = "bill-form" }))
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    <h4>Bill</h4>
+    <hr />
+    @Html.ValidationSummary(false, "", new { @class = "text-danger" })   
+    <div class="form-group">
+        @Html.LabelFor(model => model.RoomID, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("RoomID", TempData["RoomID"] as IEnumerable<SelectListItem>, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Time, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <label>
+                @DateTime.Now.ToShortDateString()
+            </label>
+        </div>
+    </div>
+
+    @Html.Partial("CompulsoryServiceTable", new BillCompulsoryServiceDetail())
+
+    @Html.Partial("AdvancedServiceTable", new BillAdvancedServiceDetail())
+
+    <div class="form-group">
+        <label class="control-label col-md-2">Room Price</label>
+        <div class="col-md-10">
+            <input type="text" id="RoomPrice" value=""  class="form-control" readonly="readonly" min="0"/>
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.OtherFee, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.OtherFee, new { htmlAttributes = new { @class = "form-control", 
+           @type = "number",
+           @onChange = "calculateTotal(this)", @id="OtherFee" } })
+            @Html.ValidationMessageFor(model => model.OtherFee, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Total, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Total, new { htmlAttributes = new { @class = "form-control total", @type = "number" } })
+            @Html.ValidationMessageFor(model => model.Total, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextArea("Description")
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+}
+<div>
+    @if (Session["User"] is User user && user.Host != null)
+    {
+        @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) 
+    }
+    | @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

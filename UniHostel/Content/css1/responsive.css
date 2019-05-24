@@ -1,0 +1,373 @@
+@media screen and (max-width: 1270px) { 
+	/* Booking home */
+	.check-availability .grid_3 {display: none;}
+	.check-availability .grid_9 {width: 100%; float:none;}
+	.check-availability .grid_9 .md-booking {padding-left: 0; text-align: center;}
+	.booking-inline .form-group {float: none;}
+	.booking-inline .booking-form {max-width: none;}
+	.check-availability .booking-inline {margin-top:0;}
+	/* Accomodation */
+	.md-accomodation-available .grid_9 {float: none; margin-top: 20px; display: block; width: auto;}
+	.md-accomodation-available > .align-center {
+		display: block;
+		margin: 0 auto;
+		float: none;
+		width: 100%;
+	}
+	.md-accomodation .title-checkroom {width: auto;}
+	.md-accomodation .md-booking {padding-left: 0;}
+	.md-accomodation .booking-inline .form-group {margin-bottom: 0;}
+}
+@media screen and (max-width: 1200px) { 
+
+	/* Slider Home */
+	.md-slide-wrapper,
+	.md-slide li,
+	.md-slide li img {
+		height: 540px;
+	}
+	.content-slide .home-content {
+		max-width: 960px;
+		width: 960px;
+	}
+
+	/* Responsive Menu */
+	#main-menu,
+	#main-nav {
+	    display: none;
+	}
+	.md-logo {
+		/*margin-left: -112px;*/
+		left: 50%;
+
+		-webkit-transform: translateX(-50%);
+		-moz-transform: translateX(-50%);
+		-ms-transform: translateX(-50%);
+		-o-transform: translateX(-50%);
+		transform: translateX(-50%);
+	}
+	.btn-toogle-res-menu{
+        display: block;
+    }
+	/* Page Check Available */
+	.md-check-available .box-sidebar {margin: 100px 0 0; text-align: center;}
+	.md-check-available .grid_3, 
+	.md-check-available .grid_9 {float: none; width: auto;}
+	.md-home-body.md-check-available {background-color: #FFF;}
+	.booking-stack .form-group {display: inline-block; vertical-align: top; margin-right: 16px;}
+	.booking-stack .form-group:last-child {margin-right: 0;}
+	.md-home-body.md-check-available .md-sidebar:before, 
+	.md-home-body.md-check-available .md-sidebar:after {display: none;}
+	.result-available {padding-top: 20px;}
+	/* Contact Page */
+	.contact-wrap {left: 40%;}
+
+	/* world-of-flawles Page */
+	/*Flag*/
+	.language-bar {
+		display: none;
+	}
+	.language-bar2 {
+		display: block;
+	}
+	
+}
+
+@media screen and (max-width: 960px) {
+
+	/* Slider Home */
+	.content-slide .home-content {
+		max-width: 760px;
+		width: 760px;
+	}
+
+	.md-sidebar {padding-right: 0;}
+	.booking-stack .form-group.last > .label-control {display: block;}
+	
+	/* Conten primary */
+	.md-home-body .md-sidebar, 
+	.md-home-body .md-primary {
+		float: none;
+		width: auto;
+		display: block;
+		padding: 0;
+	}
+	.md-primary > .row-home.box-white:after {display: none;}
+	.md-home-body .md-sidebar:before, .md-home-body .md-sidebar:after {display: none;}
+	.md-home-body {background-color: #FFF;}
+	.row-home .media-image,
+	.row-home .object-right .media-body {padding-left: 0;}
+	.md-home .header-sidebar {text-align: center;}
+	.box-quote {padding: 14px 0 15px;}
+	.row-home {padding: 0 0 30px;}
+	.md-home .md-primary {padding-top: 30px;}
+	/* Booking check */
+	.md-home .check-availability {height: auto;}
+	.form-group {margin-bottom: 0;}
+	/* Blog */
+	.heading-absolute {position: static;}
+	.md-main {margin-bottom: 20px;}
+	.md-sidebar-pt {padding-top: 0;}
+	.post-body .h3 {padding: 0;}
+	.post-header > .h2 {font-size: 26px;}
+	.post-body .h3 {font-size: 20px;}
+	/* Room detail */
+	.md-room-detail .md-main, .md-room-detail .md-sidebar {width: 100%; float:none;}
+	/* Booking cart */
+	.md-booking-cart > .md-sidebar, .md-booking-cart > .md-main,.md-checkout > .md-sidebar, .md-checkout > .md-main  {float: none; width: auto; display: block;}
+	.md-booking-cart > .md-sidebar, .md-checkout > .md-sidebar {margin-bottom: 30px;}
+	/* Typography Page  */
+	.box-bullet-list .clear {display: block;}
+	.box-bullet-list .grid_3 {width: 48%;}
+	/* Check Available Page */
+	.row-room .col.media {width: 230px;}
+	.row-room .col.list {width: 245px;}
+	.row-room .col.price {width: 150px;}
+	.row-room .col {margin-bottom: 20px;}
+	.row-room .col.price {text-align: left;}
+	.md-check-available .row-room {padding-bottom: 30px;}
+	/*  Standar Post Page */
+	.md-standar-post .md-main, .md-standar-post .md-sidebar,
+	.md-blog .md-main, .md-blog .md-sidebar	 {float: none; width: 100%;}
+	/*Testtimonail Page */
+	.md-testimonail > .md-main {padding-left: 0;}
+	.md-testimonail .md-main, .md-testimonail .md-sidebar {float: none; width: 100%;}
+	/* Contact Page */
+	.contact-wrap {left: 30%;}
+	.contact-wrap > .layout-left {width: 100%;}
+	.media-header-big {
+		font-size: 40px;
+	}
+}
+
+@media screen and (max-width: 768px) { 
+	/* Content slide home */
+	.content-slide h2.slide-title {
+		font-size: 80px;
+	}
+		.content-slide h2.slide-title.alter,
+		.content-slide.dark h2.slide-title {
+			font-size: 60px;
+		}
+	.content-slide h3.slide-title {
+		font-size: 30px;
+	}
+		.content-slide h3.slide-title.alter,
+		.content-slide.dark h3.slide-title {
+			font-size: 40px;
+		}
+	.dots-line span {
+		margin: 0;
+	}
+	.content-slide .home-content {
+		max-width: 500px;
+		width: 500px;
+	}
+	.md-slide-home .bx-wrapper .bx-controls-direction a {
+		display: none;
+	}
+
+	/* Content Primary */
+	.media-header-big {
+		font-size: 55px;
+	}
+	/* Footer */	
+	.md-footer .footer-column {padding-bottom: 20px; float: none;}
+	.hotel-contact {
+		border: 0;
+		margin-left: 0;
+		padding: 0;
+	}
+	.hotel-news {
+		padding: 0;
+	}
+	.footer-column > div {margin-bottom: 20px;}
+	/* Standar Post*/	
+	.post-footer .footer-right,.post-footer .footer-left {float:none;}
+	.post-footer .footer-right {margin-top: 10px;}
+	/* Room detail */
+	.md-room-detail .h3 {font-size: 21px;}
+	.md-room-detail .number-big {font-size: 50px;}
+	/* Booking cart */
+	.row-booking .box-heading > .head {display: none;}
+	.row-total, .row-checkout {text-align: left;}
+	/* Typography Page  */
+	.md-typography .grid_6,.section-alert .grid_6 {width: 98%; margin-bottom: 20px;}
+	/* Check Available Page */
+	.row-room .col.media {width: 100%; max-width: none;}
+	.row-room .medium {height: auto; width: 100%;}
+	/* Check out Page */
+	.col-thumbnail-room {float: none; width: 100%; margin-bottom: 20px; margin-right: 0;}
+	.col-thumbnail-room .mini {width: 100%; height: auto;}
+	/* Contact Page */
+	.contact-wrap {left: 0; position: static;}
+	.bg-contact {display: none;}
+	.contact-wrap > .layout-left {width: 95%; margin: 0 auto; padding: 0 1%;}
+	.address-wrap {
+		position: static;
+		border: 1px solid #A29061;
+		padding: 5px;
+	}
+	.address-info {border: 0; width: 70%; padding: 0;}
+	.address-map {width: 30%; margin: 0;}
+	/* World of Flawles */
+	.description-content h2 {font-size: 20px;}
+	.md-world-of-flawles .bx-viewport img {
+		height: 100%;
+	}
+}
+
+@media screen and (max-width: 640px) { 
+
+	/* Room Detail */
+	#thumb-room-detail {
+		display: none;
+	}
+	.slide-wrapper {
+		height: 100%;
+	}
+	/* Slider Home */
+	.content-slide h2.slide-title {
+		font-size: 55px;
+	}
+	.content-slide h3.slide-title {
+		font-size: 17px;
+	}
+	/* Booking Availability */
+	.booking-stack .form-group, .booking-inline .form-group {margin-right: 0;}
+	.booking-inline .form-group, .booking-stack .form-group {width: 100%; max-width: none; margin-bottom: 0;}
+	.booking-stack .col-left, .booking-stack .col-right {width: 100%; float: none; margin-right: 0;}
+	/* Content Primary */
+	.row-home .media .pull-left, 
+	.row-home .media-body,
+	.row-home .media .pull-right {float: none; width: auto; margin: 0;}
+	.row-home .media-body  {margin-top: 20px; padding-left: 0;}
+	.media-header-big {font-size: 35px;}
+	/* Accomodation */
+	.md-accomodation .row .grid_4 {width: auto; margin-bottom: 25px;}
+	.md-accomodation .row {margin-bottom: 0;}
+	/* Blog */
+	.md-blog .list-article .pull-left {float:none; width: 100%; margin-right: 0; margin-bottom: 20px;}
+	.md-blog .list-article .media-body {width: 100%;}
+	/* Standar Post*/
+	.leave-comment .form-group.input-col {float:none; width: 100%;}
+	/* Booking cart */
+	.col-number-room, .col-number-price, .col-number-total, .col-info-room {float: none; width: 100% !important;}
+	.col-number-room, .col-number-price {text-align: left;}
+	/* Checkout */
+	.row-billing .col-left, .row-billing .col-right, .row-payment .col-left, .row-payment .col-right {float: none; width: 100%; margin: 0;}
+	/* Typography Page  */
+	.box-bullet-list .grid_3 {width: 98%;}
+	.row-home .media-image, .row-home .object-right .media-body {
+		float: none;
+		width: 100%;
+	}
+	.row-home:nth-child(2n) .media-body {
+		padding-left: 1px;
+	}
+}
+@media screen and (max-width: 480px) { 
+	/* Content HOME  */
+	.content-slide h2.slide-title.alter {
+		font-size: 40px;
+		line-height: normal;
+		margin-bottom: 0;
+	}
+	.content-slide.dark h2.slide-title  {
+		font-size: 30px;
+	}
+	.content-slide h3.slide-title.alter,
+	.content-slide.dark h3.slide-title  {
+		font-size: 30px;
+		line-height: normal;
+	}
+	.content-slide .slide-description {
+		width: 300px;
+	}
+
+	/* Slider HOME */
+	.md-slide-wrapper,
+	.md-slide li,
+	.md-slide li img {
+		height: 480px;
+	}
+	/* Maintenance Page */
+	.maintenance-note h2 {font-size: 35px;}
+	/* Blog */
+	.pagination li > a {
+		font-size: 15px;
+		line-height: 28px;	
+		padding: 0 10px;
+		margin-bottom: 5px;
+	}
+	/* Standard post */
+	.list-comment .right {
+		float:none;
+		display: block;
+		margin: 10px 0 0 20px;
+	}
+	/* Check Available Page */
+	.row-room .col.list,.row-room .col.price {width: 100%;}
+	.switch-slide {
+		background: rgba(0, 0, 0, 0.6);
+		top: 0;
+		bottom: 0;
+		width: 50px;
+		left: 0;
+		overflow: hidden;
+	}
+	.switch-slide .next {display: none;}
+	.switch-slide .previous {
+		left: -10px;
+	    margin-top: -34px;
+	    position: absolute;
+	    top: 50%;
+	    width: 50px;
+	    background: none;
+	}
+	/* Work of Flawles Page */
+	.description-content {
+		float: none;
+		max-width: none;
+		right: 0;
+		width: 100%;
+		text-align: center;
+	}
+	.description-content h2, 
+	.description-content p {
+		text-align: center;
+		float: none;
+	}
+	/* Room Detail */
+	.md-room-detail .thumb-room-detail,
+	.md-room-detail .bx-controls {
+		display: none;
+	}
+	/* New & Deal  */
+	#md-news-deal {
+	    width: 100% !important;
+	}
+	.md-news-deal article.media,
+	.md-news-deal figure,
+	.md-news-deal figure a,
+	.md-news-deal figure img {
+		width: 100%;
+		height: auto;
+	}
+
+}
+
+@media screen and (max-width: 320px) { 
+	/* Work of Flawles Page */
+	.description-content h2 {
+		font-size: 17px;
+	}
+	.contact-main .col-address  {width: 100%;}
+	/* Footer */
+	.footer-social h4 {display: block; margin-bottom: 15px;}
+	/* Checkout */
+	.md-checkout .form-action .btn {font-size: 17px;}
+	/* Contact Page */
+	.address-map, .address-info {float: none; width: 100%;height: 189px;}
+}
+

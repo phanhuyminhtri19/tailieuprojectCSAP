@@ -1,0 +1,66 @@
+﻿@model UniHostel.Models.Bill
+@using UniHostel.Models
+
+<div class="form-horizontal">
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="h3">
+        <h1 class="h">Compulsory Service</h1>
+    </div>
+    <div class="card mb-3">
+        <div class="card-header">
+            <i class="fas fa-table"></i>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Comp Name</th>
+                            <th>Previous Number</th>
+                            <th>Current Number</th>
+                            <th>Unit</th>
+                            <th>Price</th>
+                            <th>Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                            var services = Model.BillCompulsoryServiceDetails.ToList();
+                            for (int i = 0; i < services.Count(); i++)
+                            {
+                                var service = services[i];
+                                <tr>
+                                    <td>
+                                        @Html.Raw(service.CompulsoryService.Name)
+                                        @Html.Hidden("CompulsoryServiceID", service.CompulsoryServiceID, new { @class = "form-control CompulsoryServiceID" })
+                                    </td>
+                                    <td>
+                                        @Html.TextBoxFor(details => service.PreNum,
+                                                            new { @class = "form-control PreNum"})
+                                    </td>
+                                    <td>
+                                        @Html.TextBoxFor(details => service.CurNum,
+                                                            new { @class = "form-control CurNum",
+                                                                @onChange = "calculateCompulServiceMoney(this)" })
+                                    </td>
+                                    <td>
+                                        @Html.Raw(service.CompulsoryService.Unit)
+                                    </td>
+                                    <td class="unit-price">
+                                        @Html.Raw(service.CompulsoryService.Price)
+                                    </td>
+                                    <td class="amount">
+                                        @Html.Raw(service.Amount)
+                                    </td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="card-footer small text-muted"></div>
+    </div>
+</div>
+

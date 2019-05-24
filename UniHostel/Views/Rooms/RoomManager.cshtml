@@ -1,0 +1,155 @@
+﻿@using PagedList; 
+@using PagedList.Mvc;
+@model PagedList.IPagedList<UniHostel.Models.Room>
+
+@{
+    Layout = "~/Views/Shared/_NiceLayout.cshtml";
+}
+
+<link rel="stylesheet" type="text/css" href="~/Content/search.css">
+<link rel="stylesheet" type="text/css" href="~/Content/styles/color.css">
+<link rel="stylesheet" type="text/css" href="~/Content/styles/layout.css">
+<link rel="stylesheet" type="text/css" href="~/Content/styles/style.css">
+<link rel="stylesheet" type="text/css" href="~/Content/styles/css.css">
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+<!-- PRELOADER -->
+<div id="preloader">
+    <span class="loader" data-loading-text="loading">
+    </span>
+</div>
+<!-- END / PRELOADER -->
+<div class="md-hotel">
+    <div id="mp-pusher" class="mp-pusher">
+        <!-- Header -->
+        <!-- Body -->
+        <form action="" method="post">
+            <div class="box">
+                <div class="container-4" style="float:right;margin-top:50px;margin-right:280px;">
+                    <input type="search" name="search" id="search" placeholder="Searching" value="@ViewBag.searchName" />
+                    <button class="icon"><i class="fa fa-search"></i></button>
+                </div>
+            </div>
+        </form>
+        <form action="" method="post">
+            <select name="SortPrice" id="form-select" class="form-select" style="margin-top:51px;margin-right:40px;float:right;font-family: 'Open Sans';font-size:16px;padding: 8px 40px 8px 14px;height:50px;width:200px;border-radius: 5px;">
+                <option class="option-test">Sắp Xếp</option>
+                <option value="Sxtd">Sắp Xếp Tăng Dần</option>
+                <option value="Sxgd">Sắp Xếp Giảm Dần</option>
+            </select>
+            <button style="margin-left:600px;margin-top:55px;" class="btn btn-info" type="submit">Submit</button>
+        </form>
+
+
+        <div class="md-body-wrapper">
+            <section class="container">
+                <div class="md-body md-accomodation">
+                    <section class="row md-accomodation-available clearfix">
+                        <div class="grid_3 align-center">
+                            <header class="box-heading heading-large">
+                                H
+                                <div class="decription-override">
+                                    <h2 class="h1">Uni Hostel</h2>
+                                    <p>Thiên đường cho mọi nhà</p>
+                                </div>
+                            </header>
+                        </div>
+                        <div class="grid_9">
+                            <section class="md-booking">
+                                <h2 class="title-checkroom">Check availability</h2>
+                                <div class="box-booking booking-inline">
+                                    <form>
+                                        <div class="form-group">
+                                            <label class="label-control">Arrival Date</label>
+                                            <div class="booking-form select-black">
+                                                <label class="collapse input">
+                                                    <input type="text" id="arrival-date" class="input-control border-black" />
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="label-control">Departure Date</label>
+                                            <div class="booking-form select-black">
+                                                <label class="collapse input">
+                                                    <input type="text" id="departure-date" class="input-control border-black" />
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group select">
+                                            <label class="label-control">Adults</label>
+                                            <div class="input-group select-black">
+                                                <label class="collapse">
+                                                    <select class="form-select">
+                                                        <option>1</option>
+                                                        <option>2</option>
+                                                        <option>3</option>
+                                                        <option>4</option>
+                                                        <option>5</option>
+                                                    </select>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group select">
+                                            <label class="label-control">Children</label>
+                                            <div class="input-group select-black">
+                                                <label class="collapse">
+                                                    <select class="form-select">
+                                                        <option>1</option>
+                                                        <option>2</option>
+                                                        <option>3</option>
+                                                        <option>4</option>
+                                                        <option>5</option>
+                                                    </select>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group last">
+                                            <label class="label-control"></label>
+                                            <a href="#" class="btn btn-large btn-darkbrown">Check</a>
+                                        </div>
+                                    </form>
+                                </div>
+                        </div>
+                    </section>
+
+
+                    <section class="md-accomodation-content">
+                        <div class="row clearfix">
+                            @foreach (var room in Model)
+                            {
+                                <div class="grid_4">
+                                    <article class="media">
+                                        <div class="card">
+                                            <img class="card-img-top" src="@room.Image" alt="Card image cap">
+                                            <div class="card-body">
+                                                <h5 class="card-title" style="margin-top: 10px;"><i class="fas fa-home"></i>  @room.Name</h5>
+                                                <p class="price" style="margin-top:-10px;"><i class="fas fa-dollar-sign"></i>  @room.Price.ToString("N0") đ/tháng</p>
+                                                <p class="card-text" style="margin-top:-15px;">
+                                                    @Html.Raw(room.Description)
+                                                </p>
+                                                <p class="area"><i class="fas fa-square"></i>Diện tích: @room.Square m² </p>
+                                                <a class="btn btn-small btn-border btn-border-brown" href="RoomDetails">See Detail</a>
+                                                <a class="btn btn-small btn-border btn-border-brown" href="RoomUpdate/@room.ID">Update</a>
+                                                <a class="btn btn-small btn-border btn-border-brown" href="Delete/@room.ID">Delete </a>
+
+                                            </div>
+                                        </div>
+                                    </article>
+                                </div>
+                            }
+
+
+                        </div>
+                        <div class="page" style="margin-left:-10px;">
+                            @Html.PagedListPager(Model, s => Url.Action("RoomManager", new { page = s }))
+                        </div>
+                    </section>
+                </div><!-- /.md-accomodation -->
+            </section><!-- /.md-wrapper  -->
+        </div>
+
+
+
+    </div><!--/.mp-pusher -->
+</div>
+

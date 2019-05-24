@@ -1,0 +1,100 @@
+﻿@model UniHostel.Models.User
+
+<link href="~/Content/UserPage.css" rel="stylesheet" />
+@{
+    User user = Session["User"] as User;
+}
+<div>
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title" id="fullname">
+                    @Model.Host.FullName
+                </h3>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+
+                    <div class=" col-md-9 col-lg-9 ">
+                        @using (Html.BeginForm("EditHost", "Users", FormMethod.Post, new { @id = "edit-form" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.HiddenFor(item => item.ID)
+                            <table class="table table-user-information" id="table">
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            Username:
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => modelItem.Username)
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Role:
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => modelItem.Role.RoleName)
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Number of room:
+                                        </td>
+                                        <td>
+                                            @Html.Raw(Model.Host.Rooms.Count(r => r.isActive == true))
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Address:
+                                        </td>
+                                        <td class="update-field" data-content="@Model.Host.Address" data-name="Address">
+                                            @Html.DisplayFor(modelItem => modelItem.Host.Address)
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            Phone:
+                                        </td>
+                                        <td class="update-field" data-content="@Model.Host.Phone" data-name="Phone">
+                                            @Html.DisplayFor(modelItem => modelItem.Host.Phone)
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Email</td>
+                                        <td class="update-field" data-content="@Model.Host.Mail" data-name="Mail">
+                                            @Html.DisplayFor(modelItem => modelItem.Host.Mail)
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <span class="pull-right">
+                                <input type="hidden" class="form-control" value="Save" id="submit-button"/>
+                            </span>
+                        }
+                    </div>
+                </div>
+            </div>
+            <div class="panel-footer" id="footer">
+                @*<a data-original-title="Broadcast Message" data-toggle="tooltip" type="button" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-envelope"></i></a>*@
+                <a href="javascript:void(0)"
+                   data-original-title="Edit this user"
+                   data-toggle="tooltip" type="button"
+                   id="edit-button"
+                   class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
+                <a href="@Url.Action("ChangePassword")"
+                   class="text-dark pull-right">
+                    <i class="fa fa-lock m-r-5"></i> Change password
+                </a>
+                @*<span class="pull-right">
+            <a data-original-title="Remove this user" data-toggle="tooltip" type="submit" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-remove"></i></a>
+        </span>*@
+            </div>
+        </div>
+    </div>
+
+</div>

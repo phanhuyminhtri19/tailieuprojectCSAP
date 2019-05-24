@@ -1,0 +1,168 @@
+﻿@model IEnumerable<UniHostel.Models.Bill>
+@using UniHostel.Models;
+
+@{
+    ViewBag.Title = "Bill History";
+    Layout = "~/Views/Shared/_LayoutForRenter.cshtml";
+}
+
+<h2>Bill History</h2>
+
+@{
+    User user = Session["User"] as User;
+    if (user.Host != null)
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+        <p>
+            @Html.ActionLink("Create new", "Create", "Bills")
+        </p>
+    }
+}
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Renter Name</th>
+            <th scope="col">Room Name</th>
+            <th scope="col">Time</th>
+            <th scope="col">Host Name</th>
+            <th scope="col">Total</th>
+            <th scope="col">is Paid</th>
+            @{
+                if (user.Host != null)
+                {
+                    <th scope="col"></th>
+                }
+            }
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            var color = "#FFEEEA";
+            if (item.isPaid == true)
+            {
+                color = "#E7FFBE";
+            }
+            <tr style="background:@color">
+                <td scope="row">
+                    <a href="@Url.Action("Details", new {ID = item.ID })">
+                        @Html.Raw(item.Renter.FullName)
+                    </a>
+
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.Room.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Time)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.Room.Host.FullName)
+                </td>
+                <td>
+                    @Html.Raw(item.Total.ToString("N0"))
+                </td>
+                <td>
+                    @if (item.isPaid == true)
+                    {
+                        <font color="green">
+                            <i class="fas fa-check"></i>
+                        </font>
+                    }
+                    else
+                    {
+                        <font color="red">
+                            <i class="fas fa-times"></i>
+                        </font>
+                    }
+                </td>
+                @{
+                    if (user.Host != null)
+                    {
+                        <td>
+                            @using (Html.BeginForm("UpdateIsPaid", "Bills", new { ID = item.ID }, FormMethod.Post
+                                , new { @id = "update-state-form" }))
+                            {
+                                @Html.AntiForgeryToken();
+                                <button type="submit" class="btn btn-default" name="value" value="false" onclick="return beforeUpdateIsPaid(this)">
+                                    <span style="font-family: wingdings; font-size: 150%; color:red">
+                                        &#10007;
+                                    </span>
+                                </button>
+                                <button type="submit" class="btn btn-default" name="value" value="true" onclick="return beforeUpdateIsPaid(this)">
+                                    <span style="font-family: wingdings; font-size: 150%; color:forestgreen">
+                                        &#10003;
+                                    </span>
+                                </button>
+                            }
+                        </td>
+                        <td>
+                            <a href="javascript:void(0)" title="Nhấn vào đây để xóa"
+                               data-url="@Url.Action("Delete", new {id = item.ID })"
+                               style="color: #dd4b39;"
+                               onclick="onClickDelete(this.getAttribute('data-url'))">
+                                <i class="fa fa-times-circle" aria-hidden="true"></i> Delete
+                            </a>
+                        </td>
+                    }
+                }
+            </tr>
+        }
+    </tbody>
+</table>
+@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "__AjaxAntiForgeryForm" }))
+{
+    @Html.AntiForgeryToken()
+}
+
+@section Scripts {
+    <script type="text/javascript">
+        function onClickDelete(url) {
+            swal({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Yes, delete it!',
+                cancelButtonText: 'No, cancel!',
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                reverseButtons: true
+            }).then(
+                value => {
+                    callAjax(url);
+                },
+                dismiss => {
+                    swal(
+                        'Cancelled',
+                        "Your action is cancelled!!!",
+                        'error'
+                    )
+                }
+            );
+        }
+
+        function callAjax(url) {
+            var form = $('#__AjaxAntiForgeryForm');
+            var token = $('input[name="__RequestVerificationToken"]', form).val();
+            $.ajax({
+                url: url,
+                type: "POST",
+                data: {
+                    __RequestVerificationToken: token
+                },
+                success: (result) => {
+                    if (result.success) {
+                        window.location.reload();
+                    } else {
+                        console.log(result);
+                    }
+                },
+                error: (err) => {
+                    console.log(err);
+                }
+            });
+        }
+    </script>
+}

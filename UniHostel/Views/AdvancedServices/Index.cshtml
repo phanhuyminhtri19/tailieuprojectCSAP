@@ -1,0 +1,52 @@
+﻿@model IEnumerable<UniHostel.Models.AdvancedService>
+
+@{
+    ViewBag.Title = "Index - AdvancedService";
+}
+
+<h2>Advanced Service</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Unit)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>*@
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            <a href="@Url.Action("Details", new { id = item.ID })">
+                @Html.DisplayFor(modelItem => item.Name)
+            </a>
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Unit)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>*@
+        <td>
+            <a href="@Url.Action("Delete", new { id = item.ID })" title="Nhấn vào đây để xóa" style="color: #dd4b39;" onclick="onClickDelete(this)">
+                <i class="fa fa-times-circle" aria-hidden="true"></i> Delete
+            </a>
+        </td>
+    </tr>
+}
+</table>

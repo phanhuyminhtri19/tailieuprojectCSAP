@@ -1,0 +1,83 @@
+﻿@model UniHostel.Models.User
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>User</h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Username)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Username)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Host.FullName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Host.FullName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Role.RoleName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Role.RoleName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Host.Address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Host.Address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Host.NumOfRoom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Host.NumOfRoom)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Host.Mail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Host.Mail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Host.Phone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Host.Phone)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Host.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Host.Description)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

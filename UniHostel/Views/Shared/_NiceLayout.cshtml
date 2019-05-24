@@ -1,0 +1,182 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="~/Content/css1/jquery-ui-1.10.3.custom.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/css1/style.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/css1/responsive.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/css1/responsive-menu.css">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+          integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+
+</head>
+
+<body>
+
+    <div class="md-hotel">
+        <div id="mp-pusher" class="mp-pusher">
+            <!-- Header -->
+            <header class="md-header">
+                <div class="container clearfix">
+                    <div class="grid_12">
+                        <nav id="main-nav" class="nav-collapse">
+                            <ul id="main-menu" class="md-menu">
+                                <li><a href="@Url.Action("Index", "Rooms")">UniHostel</a></li>
+                                @{
+                                    var user = Session["User"] as User;
+                                    if (user != null)
+                                    {
+                                        <li><a href="@Url.Action("Details", "Users")">Profile</a></li>
+                                        <li><a href="@Url.Action("RoomManager", "Rooms")">Room management</a></li>
+                                        <li class="dropdown-item">
+                                            <a href="@Url.Action("Index", "CompulsoryServices")">
+                                                Compulsory Management
+                                            </a>
+                                        </li>
+                                        <li class="dropdown-item">
+                                            <a href="@Url.Action("Index", "AdvancedServices")">
+                                                Advanced Management
+                                            </a>
+                                        </li>
+                                        <li><a href="@Url.Action("Index", "Renters")">Renter Management</a></li>
+                                        <li><a href="@Url.Action("Index", "Bills")">Bill Management</a></li>
+                                        <li><a href="@Url.Action("Logout", "Home")">Logout</a></li>
+                                    }
+                                    else
+                                    {
+                                        <li><a href="@Url.Action("Login", "Home")">Login</a></li>
+                                    }
+                                }
+                            </ul>
+                        </nav>
+                        <a id="sys_btn_toogle_menu" class="btn-toogle-res-menu" href="#"></a>
+                    </div>
+                </div>
+            </header>
+            <!-- Header End -->
+            <!-- Menu Responsive -->
+            <nav id="mp-menu" class="mp-menu alternate-menu mp-overlap right-side">
+                <div class="mp-level">
+                    <h2>Menu</h2>
+                    <ul>
+                        <li><a href="@Url.Action("Index", "Rooms")">UniHostel</a></li>
+                        @{
+                            if (user != null)
+                            {
+                                <li><a href="@Url.Action("Details", "Users")">Profile</a></li>
+                                <li><a href="@Url.Action("RoomManager", "Rooms")">Room management</a></li>
+                                <li class="dropdown-item">
+                                    <a href="@Url.Action("Index", "CompulsoryServices")">
+                                        Compulsory Management
+                                    </a>
+                                </li>
+                                <li class="dropdown-item">
+                                    <a href="@Url.Action("Index", "AdvancedServices")">
+                                        Advanced Management
+                                    </a>
+                                </li>
+                                <li><a href="@Url.Action("Index", "Renters")">Renter Management</a></li>
+                                <li><a href="@Url.Action("Index", "Bills")">Bill Management</a></li>
+                                <li><a href="@Url.Action("Logout", "Home")">Logout</a></li>
+                            }
+                            else
+                            {
+                                <li><a href="@Url.Action("Login", "Home")">Login</a></li>
+                            }
+                        }
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <div class="container-fluid body-content">
+        @RenderBody()
+        <hr />
+    </div>
+
+    <!-- Footer -->
+    <footer class="md-footer">
+        <div class="container clearfix">
+            <div class="grid_12">
+                <div class="grid_3 footer-column inner-left">
+                    <div class="hotel-address">
+                        <h3>Flawles Hotel</h3>
+                        <div class="footer-content">
+                            <address>
+                                <p>125 West 26th Street</p>
+                                <p>Suite 600 New York, NY 10011</p>
+                            </address>
+                            <p> <a href="#" class="website">© Flawles.com</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid_5 footer-column">
+                    <div class="hotel-contact">
+                        <h3>Contact</h3>
+                        <ul class="footer-content">
+                            <li>telephone <span class="hotel-number">(012) 345-6789</span></li>
+                            <li>fax <span class="hotel-number">(012) 345-6789</span></li>
+                            <li>reservations <span class="hotel-number">(012) 345-6789</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="grid_4 footer-column inner-right">
+                    <div class="hotel-news">
+                        <h3>Newsletter</h3>
+                        <div class="footer-content">
+                            <p>Sign up for our newsletter, and we’ll keep you updated on all events at Flawles!</p>
+                            <form>
+                                <input type="text"><button type="submit" class="btn btn-brown">Send</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="grid_12">
+                <div class="footer-social">
+                    <div class="social-inner">
+                        <h4>Follow us</h4>
+                        <span class="social-group">
+                            <a href="#"><i class="fab fa-facebook-square"></i></a>
+                            <a href="#"><i class="fab fa-twitter-square"></i></a>
+                            <a href="#"><i class="fab fa-google-plus-square"></i></a>
+                            <a href="#"><i class="fab fa-dribbble-square"></i></a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Library Javascript  -->
+    <!-- xổ ra danh sách ngày -->
+    <script type="text/javascript" src="~/Scripts/js1/modernizr.custom.js"></script>
+    <script type="text/javascript" src="~/Scripts/js1/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="~/Scripts/js1/jquery-ui-1.10.3.js"></script>
+    <script type="text/javascript" src="~/Scripts/js1/jquery.bxslider.min.js"></script>
+
+
+    <!-- Responsive Menu Javascript  -->
+    <script type="text/javascript" src="~/Scripts/js1/classie.js"></script>
+    <script type="text/javascript" src="~/Scripts/js1/mlpushmenu.js"></script>
+
+    <!-- Main Javascript  -->
+    <script type="text/javascript" src="~/Scripts/js1/script.js"></script>
+
+    <!-- Separate Javascript for each page -->
+    <script type="text/javascript" src="~/Scripts/js1/home.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            "use strict";
+            $("#arrival-date, #departure-date").datepicker({
+            });
+        });
+    </script>
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

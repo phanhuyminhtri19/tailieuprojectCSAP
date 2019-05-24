@@ -1,0 +1,272 @@
+﻿@model UniHostel.Models.Bill
+
+@{
+    ViewBag.Title = "Bill History Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    User user = Session["User"] as User;
+    if (user.Host == null)
+    {
+        Layout = "~/Views/Shared/_LayoutForRenter.cshtml";
+    }
+}
+<div>
+    <h4>Bill Details</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayName("Fullname")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Room.Renters.OrderByDescending(r => r.StartDate).FirstOrDefault().FullName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Time)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Time)
+        </dd>
+
+        <div class="h3">
+            <h4 class="h">Compulsory Service</h4>
+        </div>
+        <!--Compulsory service detail table-->
+        <div class="card mb-3">
+            <div class="card-header">
+                <i class="fas fa-table"></i>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Comp Name</th>
+                                <th>Previous Number</th>
+                                <th>Current Number</th>
+                                <th>Unit</th>
+                                <th>Price</th>
+                                <th>Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{
+                                var services = Model.BillCompulsoryServiceDetails;
+                                for (int i = 0; i < services.Count(); i++)
+                                {
+                                    var service = services.ElementAt(i);
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(model => service.CompulsoryService.Name)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(model => service.PreNum)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(model => service.CurNum)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(model => service.CompulsoryService.Unit)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(model => service.CompulsoryService.Price)
+                                        </td>
+                                        <td>
+                                            @Html.Raw(service.Amount.ToString("F0"))
+                                        </td>
+
+                                    </tr>
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="card-footer small text-muted"></div>
+        </div>
+
+        <div class="h">
+            <h4>Advanced Service</h4>
+        </div>
+        <div class="card mb-3">
+            <div class="card-header">
+                <i class="fas fa-table"></i>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Service Name</th>
+                                <th>Unit</th>
+                                <th>Quantity</th>
+                                <th>Price</th>
+                                <th>Amount</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            @{
+                                var AdvancedServices = Model.BillAdvancedServiceDetails;
+                                for (int i = 0; i < AdvancedServices.Count(); i++)
+                                {
+                                    var service = AdvancedServices.ElementAt(i);
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(model => service.AdvancedService.Name)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(model => service.AdvancedService.Unit)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(model => service.Quantity)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(model => service.AdvancedService.Price)
+                                        </td>
+                                        <td>
+                                            @Html.Raw(service.Amount.ToString("F0"))
+                                        </td>
+
+                                    </tr>
+                                }
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="card-footer small text-muted"></div>
+
+            </div>
+        </div>
+
+
+        <dt>
+            @Html.Raw("Room Price")
+        </dt>
+
+        <dd>
+            @Html.Raw(Model.Room.Price.ToString("N0"))
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OtherFee)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OtherFee)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Total)
+        </dt>
+
+        <dd>
+            @Html.Raw(Model.Total.ToString("N0"))
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.isPaid)
+        </dt>
+
+        <dd>
+            @if (Model.isPaid == true)
+            {
+                <font color="green">
+                    <i class="fas fa-check"></i>
+                </font>
+            }
+            else
+            {
+                <font color="red">
+                    <i class="fas fa-times"></i>
+                </font>
+            }
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+    </dl>
+</div>
+<div>
+    @if (user.Host != null)
+    {
+
+        <a href="@Url.Action("ExportExcel", new { id = Model.ID })" title="Click here to edit">
+            <i class="far fa-file-excel"></i> Export to Excel file
+        </a>
+        <label> | </label>
+        <a href="@Url.Action("Edit", new { id = Model.ID })" title="Click here to edit">
+            <i class="fas fa-edit"></i> Edit
+        </a>
+        <label> | </label>
+    }
+    else
+    {
+        <div id="paypal-button-container"></div>
+        <script>
+            paypal.Button.render({
+                env: 'sandbox',
+
+                style: {
+                    layout: 'vertical',
+                    size: 'medium',
+                    shape: 'rect',
+                    color: 'gold'
+                },
+
+                funding: {
+                    allowed: [
+                        paypal.FUNDING.CARD,
+                        paypal.FUNDING.CREDIT
+                    ],
+                    disallowed: []
+                },
+
+                // PayPal Client IDs - replace with your own
+                // Create a PayPal app: https://developer.paypal.com/developer/applications/create
+                client: {
+                    sandbox: 'AZDxjDScFpQtjWTOUtWKbyN_bDt4OgqaF4eYXlewfBP4-8aqX3PiV8e1GWU6liB2CUXlkA59kJXE7M6R',
+                    production: '<insert production client id>'
+                },
+
+                payment: function (data, actions) {
+                    return actions.payment.create({
+                        payment: {
+                            transactions: [
+                                {
+                                    amount: {
+                                        total: '@Model.Total',
+                                        currency: 'VND'
+                                    }
+                                }
+                            ]
+                        }
+                    });
+                },
+
+                onAuthorize: function (data, actions) {
+                    return actions.payment.execute()
+                        .then(function () {
+                            window.alert('Payment Complete!');
+                        });
+                }
+            }, '#paypal-button-container');
+        </script>
+    }
+
+    <a href="@Url.Action("Index")">
+        <i class="fas fa-arrow-left" aria-hidden="true"></i> Back to List
+    </a>
+</div>

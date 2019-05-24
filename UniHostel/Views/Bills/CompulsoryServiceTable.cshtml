@@ -1,0 +1,69 @@
+﻿@model UniHostel.Models.BillCompulsoryServiceDetail
+@using UniHostel.Models
+
+<div class="form-horizontal">
+    <hr />
+    <div class="h3">
+        <h1 class="h">Compulsory Service</h1>
+    </div>
+    <div class="card mb-3">
+        <div class="card-header">
+            <i class="fas fa-table"></i>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Comp Name</th>
+                            <th>Previous Number</th>
+                            <th>Current Number</th>
+                            <th>Unit</th>
+                            <th>Price</th>
+                            <th>Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                            var services = ViewData["CompulsoryService"] as IList<CompulsoryService>;
+                            for (int i = 0; i < services.Count(); i++)
+                            {
+                                var service = services[i];
+                                <tr>
+                                    <td>
+                                        @Html.Raw(service.Name)
+                                        @Html.Hidden("CompulsoryServiceID", service.ID, new {@class= "form-control CompulsoryServiceID" })
+                                    </td>
+                                    <td>
+                                        @Html.TextBoxFor(details => details.PreNum,
+                                                            new { @class = "form-control PreNum"
+                                                            , @data_prenum = service.ID
+                                                            , @type = "number"})
+                                    </td>
+                                    <td>
+                                        @Html.TextBoxFor(details => details.CurNum,
+                                                            new { @class = "form-control CurNum"
+                                                                ,@type = "number"
+                                                                ,@onChange = "calculateCompulServiceMoney(this)" })
+                                    </td>
+                                    <td>
+                                        @Html.Raw(service.Unit)
+                                    </td>
+                                    <td class="unit-price">
+                                        @Html.Raw(service.Price.ToString())
+                                    </td>
+                                    <td class="amount">
+                                        0
+                                    </td>
+                                    @Html.HiddenFor(details => details.Amount)
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="card-footer small text-muted"></div>
+    </div>
+</div>
+

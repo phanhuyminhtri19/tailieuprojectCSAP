@@ -1,0 +1,145 @@
+﻿@model UniHostel.Models.Room
+
+@{
+    Layout = "~/Views/Shared/_NiceLayout.cshtml";
+}
+
+<link href="~/Content/bootstrap.css" rel="stylesheet" media="screen">
+<link href="~/Content/custom.css" rel="stylesheet" media="screen">
+<link href="~/Content/1.css" rel="stylesheet" media="screen">
+
+
+<div class="hidden-xs">
+    <div style="margin-top:10px"></div>
+</div>
+<div class="visible-xs">
+    <div style="margin-top:20px"></div>
+</div>
+<div class="mtslide2 sliderbg2"></div>
+<section id="top" class="parallax-window" data-parallax="scroll" style="margin-top:-30px;background: url('/asset/imgRoommanager/update.jpg') top left no-repeat;background-position: center;margin: 63px;     ">
+    <div class="parallax-content-1" style="z-index:99999;">
+        <div class="animated fadeInDown">
+            <h1 style="text-shadow: 0 7px 11px rgba(0,0,0,.5);">CHÀO MỪNG BẠN ĐẾN VỚI HOSTEL của chúng tôi</h1>
+            <h4 style="text-shadow: 0 2px 6px rgba(0,0,0,2.5);color:#fff;">Bạn đang có nhu cầu muốn hợp tác cùng Hostel.vn ? Vui lòng điền đầy đủ thông tin bên dưới. Chúng tôi sẽ liên hệ lại với bạn trong thời gian sớm nhất.</h4>
+            <div style="margin-top:120px" class="form-group">
+                <!--<div id="hotels" class="showform"><i class="icon-building"></i> Đăng ký quản lý Nhà trọ/ Phòng trọ/ Căn hộ cho thuê</div>-->
+            </div>
+        </div>
+    </div>
+</section>
+<div class="container">
+    <div class="panel-body" id="apply" style="padding:0;">
+        <div class="well" style="padding:0px;">
+            <div class="col-xs-14 col-sm-14 col-md-14 col-lg-14">
+                <form class="form-horizontal" action="" method="POST" enctype="multipart/form-data">
+                    <div class="panel-body" style="padding: 15px 0 0 0;">
+                        <div class="col-md-10">
+                            <fieldset>
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                <input type="hidden" name="ID" value="@Model.ID" />
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label">Room ID</label>
+                                    <div class="col-md-8">
+                                        @Html.TextBoxFor(model => model.ID, new { @class = "form-control", @readonly ="true"} )
+                                    </div>
+
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label">Name <small class="red">*</small></label>
+                                    <div class="col-md-8">
+                                        <input data-original-title="Họ" data-toggle="tooltip" data-placement="top" class="form-control form" type="text" placeholder="Please enter name" name="Name" value="@Model.Name" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label">Square <small class="red">*</small></label>
+                                    <div class="col-md-8">
+                                        <input data-original-title="Tên" data-toggle="tooltip" data-placement="top" class="form-control form"
+                                               type="text" placeholder="Please enter Square" name="Square" value="@Model.Square" required>
+                                    </div>
+                                </div>
+                                <hr class="soften">
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label">Price <small class="red">*</small></label>
+                                    <div class="col-md-8">
+                                        <input data-original-title="Điện thoai" data-toggle="tooltip"
+                                               data-placement="top" class="form-control form" type="text" placeholder="Please enter Price"
+                                               name="Price" value="@Model.Price.ToString("N0")" required>
+                                    </div>
+                                </div>
+                                <hr class="soften">
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label">Description </label>
+                                    <div class="col-md-8">
+                                        <input data-original-title="Điện thoai"
+                                               data-toggle="tooltip" data-placement="top" class="form-control form"
+                                               type="text" placeholder="Please enter Description" name="Description" value="@Model.Description">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label">isAvailable</label>
+                                    <div class="col-md-8">
+                                        <input class="form-control form" type="checkbox" style="width:initial"
+                                               placeholder="Please enter isAvailable"
+                                               name="IsAvailable" checked="@Model.isAvailable">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label">Load Image</label>
+                                    <div class="col-md-8">
+                                        <input data-original-title="Địa chỉ"
+                                               data-toggle="tooltip" data-placement="top" class="form-control form"
+                                               type="text" placeholder="Please load image" name="Image" value="@Model.Image">
+
+                                        <input type="file" accept="image/*" id="file-input" name="banner" />
+                                        <img src="https://increasify.com.au/wp-content/uploads/2016/08/default-image.png" id="img_preview" />
+
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+                    <input type="hidden" name="addaccount" value="1" />
+                    <input type="hidden" name="type" value="supplier" />
+                    <div class="panel-footer">
+                        <input type="hidden" id="applyfor" name="applyfor" value="">
+                        <div class="clearfix"></div><br>
+                        <button type="submit" class="btn-block btn btn-lg btn-action center-block">Update</button>
+                        <div class="clearfix"></div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="detail-guide">
+        <h1 style="font-size:20px;">Vì sao nên làm đối tác với Hostel.vn?</h1><br />
+        Chúng tôi là đơn vị đầu tiên và duy nhất ở Việt Nam cung cấp dịch vụ đặt phòng trọ, căn hộ cho thuê trực tuyến.<br />Thông tin của nhà trọ, phòng, căn hộ được quảng cáo rộng rãi đến khách hàng qua các kênh truyền thông của Mystay.vn.<br />Hệ thống quản lý phòng và giá trực tuyến cho đối tác thuận tiện và dễ dàng sử dụng.<br />Bộ phận chăm sóc khách hàng chuyên nghiệp, nhiệt tình luôn hỗ trợ tối đa cho chủ nhà trọ, căn hộ và khách hàng. Bạn là:<br /><br />
+        <b>Đối tác nhà trọ, phòng, căn hộ cho thuê :</b><br /><br />
+        Chúng tôi luôn cố gắng hỗ trợ các đối tác để có được nhiều khách thuê phòng nhất.<br />
+        Bạn đang có nhu cầu muốn hợp tác cùng Mystay.vn ? Vui lòng điền đầy đủ thông tin. Chúng tôi sẽ liên hệ lại với bạn trong thời gian sớm nhất.<br />
+    </div>
+</div>
+<div class="footerbg3" style="padding: 20px 0;">
+</div>
+@section Scripts{
+    <script>
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#img_preview').attr('src', e.target.result);
+                }
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        $("#file-input").change(function () {
+            readURL(this);
+        });
+
+    </script>
+}

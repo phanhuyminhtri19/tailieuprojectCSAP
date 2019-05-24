@@ -1,0 +1,27 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Error</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="../Content/ampleadmin/ampleadmin-html/ampleadmin-sidebar/../plugins/images/favicon.png">
+    @Styles.Render("~/Content/ampleadmin/ampleadmin-html/ampleadmin-sidebar/css")
+    <link href="css/colors/default.css" id="theme" rel="stylesheet">
+</head>
+<body>
+    <section id="wrapper" class="error-page">
+        <div class="error-box">
+            <div class="error-body text-center">
+                <h1 class="text-warning">Error</h1>
+                <h3 class="text-uppercase">This site no longer exsist</h3>
+                <a href="@Url.Action("Login", "Home")" class="btn btn-info btn-rounded waves-effect waves-light m-b-40">Back to home</a>
+            </div>
+        </div>
+    </section>
+    @Scripts.Render("~/Content/ampleadmin/ampleadmin-html/ampleadmin-sidebar")
+</body>
+</html>
